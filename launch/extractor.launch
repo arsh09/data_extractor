@@ -1,0 +1,17 @@
+<launch>    
+
+    <arg name="rosbag_fp" value="/data/bachus_dataset/rosbags/rosbag_compressed_2022-06-08-14-03-03.bag"/>
+
+    <node name="rosbag_pull"
+        pkg="rosbag" 
+        type="play" 
+        args="$(arg rosbag_fp)"
+    />
+
+    <node name="extractor"
+        pkg="data_extractor" 
+        type="extract.py"
+        output="screen"
+    />
+
+</launch>
